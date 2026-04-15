@@ -1,0 +1,10 @@
+<h1> To Do list for tutuTasker </h1>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} 
+            {% if task.completed %} ✅ {% else %} ⏳ {% endif %}
+        </li>
+    {% endfor %}
+</ul>

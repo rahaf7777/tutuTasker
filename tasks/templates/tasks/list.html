@@ -1,10 +1,20 @@
-<h1> To Do list for tutuTasker </h1>
-
-<ul>
-    {% for task in tasks %}
-        <li>
-            {{ task.title }} 
-            {% if task.completed %} ✅ {% else %} ⏳ {% endif %}
-        </li>
-    {% endfor %}
-</ul>
+{% load static %} <!DOCTYPE html>
+<html>
+<head>
+    <title>tutuTasker | Editorial</title>
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>tutuTasker</h1>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <span>{{ task.title }}</span>
+                    <span>{% if task.completed %} ✅ {% else %} ⏳ {% endif %}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

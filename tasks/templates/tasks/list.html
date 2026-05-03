@@ -7,6 +7,13 @@
 <body>
     <div class="container">
         <h1>tutuTasker</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">add your task</button>
+        </form>
+        
         <ul>
             {% for task in tasks %}
                 <li>

@@ -6,22 +6,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>tutuTasker</h1>
+    <h1>tutuTasker</h1>
 
+    <div class="form-wrapper">
         <form method="POST">
             {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">add your task</button>
+            {{ form.title }}
+            <button type="submit">add</button>
         </form>
-        
-        <ul>
-            {% for task in tasks %}
-                <li>
-                    <span>{{ task.title }}</span>
-                    <span>{% if task.completed %} ✅ {% else %} ⏳ {% endif %}</span>
-                </li>
-            {% endfor %}
-        </ul>
     </div>
+
+    <ul class="task-list">
+        {% for task in tasks %}
+            <li class="task-item">
+                <span class="task-text">{{ task.title }}</span>
+                <div class="task-actions">
+                    <a href="{% url 'delete_task' task.id %}" class="delete-btn">delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 </body>
 </html>
